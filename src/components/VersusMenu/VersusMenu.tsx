@@ -4,66 +4,66 @@ import Option from "../Option/Option";
 import "./VersusMenu.scss";
 interface Props {
   selectedOption: OptionType;
-  addPoint: (player: "you" | "oponent") => void;
+  addPoint: (player: "you" | "opponent") => void;
   nextRound: () => void;
 }
 const options: OptionType[] = ["rock", "paper", "scissors", "lizard", "spock"];
 
 const VersusMenu = ({ selectedOption, addPoint, nextRound }: Props) => {
   const [winner, setWinner] = React.useState<PlayerType | "tie" | null>(null);
-  const [oponentSelectedOption] = React.useState<OptionType>(options[Math.floor(Math.random() * 5)]);
+  const [opponentSelectedOption] = React.useState<OptionType>(options[Math.floor(Math.random() * 5)]);
 
   const getWinner = React.useCallback(
-    (user: OptionType, oponent: OptionType) => {
+    (user: OptionType, opponent: OptionType) => {
       if (user === "rock") {
-        if (oponent === "rock") {
+        if (opponent === "rock") {
           setWinner("tie");
-        } else if (oponent === "scissors" || oponent === "lizard") {
+        } else if (opponent === "scissors" || opponent === "lizard") {
           setWinner("you");
           addPoint("you");
-        } else if (oponent === "paper" || oponent === "spock") {
-          setWinner("oponent");
-          addPoint("oponent");
+        } else if (opponent === "paper" || opponent === "spock") {
+          setWinner("opponent");
+          addPoint("opponent");
         }
       } else if (user === "paper") {
-        if (oponent === "paper") {
+        if (opponent === "paper") {
           setWinner("tie");
-        } else if (oponent === "rock" || oponent === "spock") {
+        } else if (opponent === "rock" || opponent === "spock") {
           setWinner("you");
           addPoint("you");
-        } else if (oponent === "scissors" || oponent === "lizard") {
-          setWinner("oponent");
-          addPoint("oponent");
+        } else if (opponent === "scissors" || opponent === "lizard") {
+          setWinner("opponent");
+          addPoint("opponent");
         }
       } else if (user === "scissors") {
-        if (oponent === "scissors") {
+        if (opponent === "scissors") {
           setWinner("tie");
-        } else if (oponent === "paper" || oponent === "lizard") {
+        } else if (opponent === "paper" || opponent === "lizard") {
           setWinner("you");
           addPoint("you");
-        } else if (oponent === "rock" || oponent === "spock") {
-          setWinner("oponent");
-          addPoint("oponent");
+        } else if (opponent === "rock" || opponent === "spock") {
+          setWinner("opponent");
+          addPoint("opponent");
         }
       } else if (user === "lizard") {
-        if (oponent === "lizard") {
+        if (opponent === "lizard") {
           setWinner("tie");
-        } else if (oponent === "paper" || oponent === "spock") {
+        } else if (opponent === "paper" || opponent === "spock") {
           setWinner("you");
           addPoint("you");
-        } else if (oponent === "rock" || oponent === "scissors") {
-          setWinner("oponent");
-          addPoint("oponent");
+        } else if (opponent === "rock" || opponent === "scissors") {
+          setWinner("opponent");
+          addPoint("opponent");
         }
       } else if (user === "spock") {
-        if (oponent === "spock") {
+        if (opponent === "spock") {
           setWinner("tie");
-        } else if (oponent === "scissors" || oponent === "rock") {
+        } else if (opponent === "scissors" || opponent === "rock") {
           setWinner("you");
           addPoint("you");
-        } else if (oponent === "paper" || oponent === "lizard") {
-          setWinner("oponent");
-          addPoint("oponent");
+        } else if (opponent === "paper" || opponent === "lizard") {
+          setWinner("opponent");
+          addPoint("opponent");
         }
       }
     },
@@ -71,8 +71,8 @@ const VersusMenu = ({ selectedOption, addPoint, nextRound }: Props) => {
   );
 
   React.useEffect(() => {
-    getWinner(selectedOption, oponentSelectedOption);
-  }, [getWinner, oponentSelectedOption, selectedOption]);
+    getWinner(selectedOption, opponentSelectedOption);
+  }, [getWinner, opponentSelectedOption, selectedOption]);
 
   return (
     <div className="versus-menu paper-card">
@@ -83,14 +83,14 @@ const VersusMenu = ({ selectedOption, addPoint, nextRound }: Props) => {
       <div className="center">
         <h3>
           {winner === "you" && "You win! :)"}
-          {winner === "oponent" && "You lose! :("}
+          {winner === "opponent" && "You lose! :("}
           {winner === "tie" && "It's a tie!"}
         </h3>
         <button onClick={nextRound}>Next round</button>
       </div>
-      <div className="choice oponent">
-        <span className="text">Your oponent chose:</span>
-        <Option type={oponentSelectedOption} presentational />
+      <div className="choice opponent">
+        <span className="text">Your opponent chose:</span>
+        <Option type={opponentSelectedOption} presentational />
       </div>
     </div>
   );

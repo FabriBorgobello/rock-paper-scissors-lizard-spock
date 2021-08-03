@@ -29,8 +29,8 @@ const SideBar = ({ score, handleReset, changeGoal, goal }: Props) => {
             <span className="number">{score.you}</span>
           </div>{" "}
           <div className="player">
-            <span className="name">Oponent</span>
-            <span className="number">{score.oponent}</span>
+            <span className="name">opponent</span>
+            <span className="number">{score.opponent}</span>
           </div>
         </div>
       </div>

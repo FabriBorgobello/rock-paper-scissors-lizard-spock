@@ -9,15 +9,17 @@ interface Props {
 const GameOver = ({ winner, reset }: Props) => {
   if (winner === "you") {
     return (
-      <div>
-        Congratulations. You won!!
+      <div className="game-over paper-card">
+        <span className="main-message">YOU WON!!!</span>
+        <span className="description">Congratulations. I'm sure your opponent wants a rematch.</span>
         <button onClick={reset}>Play again</button>
       </div>
     );
-  } else if (winner === "oponent") {
+  } else if (winner === "opponent") {
     return (
-      <div>
-        You lost! Better luck next time...
+      <div className="game-over paper-card">
+        <span className="main-message">YOU LOST</span>
+        <span className="description">Better luck next time... Bazinga!</span>
         <button onClick={reset}>Play again</button>
       </div>
     );

@@ -1,0 +1,45 @@
+div.game-over {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+  span.main-message {
+    color: white;
+    font-size: 5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  span.description {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-bottom: 4rem;
+  }
+  button {
+    height: 4rem;
+    width: 100%;
+    font-size: 1rem;
+    border-radius: 6px;
+    background: none;
+    background-color: #1b215e;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      opacity: 1;
+    }
+    &:active {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+  }
+}

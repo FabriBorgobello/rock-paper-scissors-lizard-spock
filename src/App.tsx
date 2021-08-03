@@ -9,7 +9,7 @@ import VersusMenu from "./components/VersusMenu/VersusMenu";
 import { OptionType, PlayerType, ScoreBoardType } from "./Types";
 
 const App = () => {
-  const [score, setScore] = React.useState<ScoreBoardType>({ you: 0, oponent: 0 });
+  const [score, setScore] = React.useState<ScoreBoardType>({ you: 0, opponent: 0 });
   const [selectedOption, setSelectedOption] = React.useState<OptionType | null>(null);
   const [goal, setGoal] = React.useState<3 | 5 | 10>(5);
 
@@ -22,7 +22,7 @@ const App = () => {
   };
   const handleReset = () => {
     setSelectedOption(null);
-    setScore({ you: 0, oponent: 0 });
+    setScore({ you: 0, opponent: 0 });
   };
 
   const handleNextRound = () => {
@@ -38,7 +38,7 @@ const App = () => {
       <NavBar />
       <div className="main-container">
         <Header />
-        {score.you < goal && score.oponent < goal && (
+        {score.you < goal && score.opponent < goal && (
           <div className="playing-board">
             {!selectedOption ? (
               <SelectMenu handleSelect={handleSelect} />
@@ -50,7 +50,7 @@ const App = () => {
         )}
 
         {score.you >= goal && <GameOver winner="you" reset={handleReset} />}
-        {score.oponent >= goal && <GameOver winner="oponent" reset={handleReset} />}
+        {score.opponent >= goal && <GameOver winner="opponent" reset={handleReset} />}
       </div>
       {/* <Footer /> */}
     </div>
