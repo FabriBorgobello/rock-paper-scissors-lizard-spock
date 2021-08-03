@@ -37,8 +37,18 @@
 
 div.select-menu {
   width: 70%;
+  @media (max-width: 950px) {
+    width: 100%;
+    padding: 3rem 1rem 1rem;
+  }
   ul.options-container {
-    @include on-circle($item-count: 5, $circle-size: 450px, $item-size: 180px);
-    margin: 100px auto 65px;
+    li {
+      list-style: none;
+    }
+
+    @media (min-width: 950px) {
+      @include on-circle($item-count: 5, $circle-size: 450px, $item-size: 180px);
+      margin: 100px auto 65px;
+    }
   }
 }

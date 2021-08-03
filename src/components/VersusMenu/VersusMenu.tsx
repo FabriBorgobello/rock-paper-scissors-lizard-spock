@@ -77,19 +77,19 @@ const VersusMenu = ({ selectedOption, addPoint, nextRound }: Props) => {
   return (
     <div className="versus-menu paper-card">
       <div className="choice you">
-        <span className="text">You chose:</span>
+        <span className="text">You picked:</span>
         <Option type={selectedOption} presentational />
       </div>
       <div className="center">
         <h3>
-          {winner === "you" && "You win! :)"}
-          {winner === "opponent" && "You lose! :("}
+          {winner === "you" && "You win!"}
+          {winner === "opponent" && "You lose!"}
           {winner === "tie" && "It's a tie!"}
         </h3>
         <button onClick={nextRound}>Next round</button>
       </div>
       <div className="choice opponent">
-        <span className="text">Your opponent chose:</span>
+        <span className="text">Your opponent picked:</span>
         <Option type={opponentSelectedOption} presentational />
       </div>
     </div>

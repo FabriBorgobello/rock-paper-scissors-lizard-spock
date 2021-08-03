@@ -29,7 +29,7 @@ const SideBar = ({ score, handleReset, changeGoal, goal }: Props) => {
             <span className="number">{score.you}</span>
           </div>{" "}
           <div className="player">
-            <span className="name">opponent</span>
+            <span className="name">Opponent</span>
             <span className="number">{score.opponent}</span>
           </div>
         </div>
@@ -49,7 +49,7 @@ const SideBar = ({ score, handleReset, changeGoal, goal }: Props) => {
         </div>
         <span> points</span>
       </div>
-      <div className="buttons">
+      <div className="aside-buttons">
         <button className="btn" onClick={handleReset}>
           Reset
         </button>{" "}

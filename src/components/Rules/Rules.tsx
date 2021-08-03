@@ -59,7 +59,7 @@ const Help1 = ({ active, handleClose, activeHelp, changeHelp }: HelpProps) => {
         </div>
         <div className="buttons">
           <button onClick={changeHelp} className="more-help">
-            That was not helpful at all.
+            That did not help
           </button>
         </div>
       </div>

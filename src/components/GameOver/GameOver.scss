@@ -6,11 +6,21 @@ div.game-over {
   justify-content: center;
   align-items: center;
   padding: 3rem;
+  @media (max-width: 950px) {
+    width: 100%;
+    margin-inline: auto;
+    text-align: center;
+    padding: 3rem 1rem;
+  }
   span.main-message {
     color: white;
     font-size: 5rem;
     font-weight: 700;
     margin-bottom: 1rem;
+    @media (max-width: 950px) {
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+    }
   }
   span.description {
     color: white;

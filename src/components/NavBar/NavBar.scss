@@ -10,6 +10,9 @@ nav {
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
+    @media (max-width: 950px) {
+      padding: 0 1rem;
+    }
     ul {
       display: flex;
       align-items: center;

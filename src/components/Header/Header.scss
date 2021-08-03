@@ -8,6 +8,11 @@ div.header-container {
       font-family: "Roboto Condensed", sans-serif;
       color: white;
       font-size: 3rem;
+      @media (max-width: 950px) {
+        margin-top: 2rem;
+        text-align: center;
+        font-size: 2rem;
+      }
     }
   }
 }
