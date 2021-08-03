@@ -1,0 +1,111 @@
+aside.tools {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  div.scoreboard {
+    background: rgba(83, 92, 172, 0.45);
+    backdrop-filter: blur(4px);
+    border-radius: 8px;
+    padding: 1.5rem 0;
+
+    div.scores {
+      display: flex;
+      justify-content: space-evenly;
+      div.player {
+        width: 50%;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: white;
+        &:first-of-type {
+          border-right: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        span.name {
+          font-weight: 400;
+          font-size: 1.5rem;
+          margin-bottom: 1rem;
+        }
+        span.number {
+          font-size: 5rem;
+          font-weight: 800;
+        }
+      }
+    }
+  }
+  div.game-to {
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    span {
+      color: white;
+      font-size: 1.2rem;
+    }
+    div.options {
+      height: 60px;
+      display: flex;
+      align-items: center;
+      background: rgba(83, 92, 172, 0.45);
+      border-radius: 6px;
+      margin: 0 0.75rem;
+      overflow: hidden;
+      border: 0.5px solid rgba(255, 255, 255, 0.05);
+
+      & :nth-child(2) {
+        border-left: 0.5px solid rgba(255, 255, 255, 0.05);
+        border-right: 0.5px solid rgba(255, 255, 255, 0.05);
+      }
+      div.point-option {
+        height: 100%;
+        width: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 2rem;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        &.active {
+          background-color: hsl(235, 55%, 18%);
+          color: white;
+          font-weight: 700;
+          box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+      }
+    }
+  }
+  div.buttons {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 1rem;
+    margin-top: 2rem;
+    button.btn {
+      height: 3rem;
+      width: 100%;
+      font-size: 1rem;
+      border-radius: 6px;
+      background: none;
+      background-color: #1b215e;
+      border: none;
+      color: white;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      cursor: pointer;
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: translateY(-2px);
+        opacity: 1;
+      }
+      &:active {
+        transform: translateY(0px);
+        opacity: 1;
+      }
+    }
+  }
+}

@@ -1,26 +1,60 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import * as React from "react";
+import "./App.scss";
+import GameOver from "./components/GameOver/GameOver";
+import Header from "./components/Header/Header";
+import NavBar from "./components/NavBar/NavBar";
+import SelectMenu from "./components/SelectMenu/SelectMenu";
+import SideBar from "./components/SideBar/SideBar";
+import VersusMenu from "./components/VersusMenu/VersusMenu";
+import { OptionType, PlayerType, ScoreBoardType } from "./Types";
 
-function App() {
+const App = () => {
+  const [score, setScore] = React.useState<ScoreBoardType>({ you: 0, oponent: 0 });
+  const [selectedOption, setSelectedOption] = React.useState<OptionType | null>(null);
+  const [goal, setGoal] = React.useState<3 | 5 | 10>(5);
+
+  const handleAddPoint = React.useCallback((player: PlayerType) => {
+    setScore((prevState) => ({ ...prevState, [player]: prevState[player] + 1 }));
+  }, []);
+
+  const handleSelect = (option: OptionType) => {
+    setSelectedOption(option);
+  };
+  const handleReset = () => {
+    setSelectedOption(null);
+    setScore({ you: 0, oponent: 0 });
+  };
+
+  const handleNextRound = () => {
+    setSelectedOption(null);
+  };
+  const handleChangeGoal = (newGoal: 3 | 5 | 10) => {
+    handleReset();
+    setGoal(newGoal);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <NavBar />
+      <div className="main-container">
+        <Header />
+        {score.you < goal && score.oponent < goal && (
+          <div className="playing-board">
+            {!selectedOption ? (
+              <SelectMenu handleSelect={handleSelect} />
+            ) : (
+              <VersusMenu selectedOption={selectedOption} addPoint={handleAddPoint} nextRound={handleNextRound} />
+            )}
+            <SideBar score={score} handleReset={handleReset} changeGoal={handleChangeGoal} goal={goal} />
+          </div>
+        )}
+
+        {score.you >= goal && <GameOver winner="you" reset={handleReset} />}
+        {score.oponent >= goal && <GameOver winner="oponent" reset={handleReset} />}
+      </div>
+      {/* <Footer /> */}
     </div>
   );
-}
+};
 
 export default App;

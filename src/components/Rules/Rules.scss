@@ -1,0 +1,129 @@
+div.rules-container {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 10;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  opacity: 0;
+  transition: opacity 0.3s linear;
+  &.opening {
+    opacity: 1;
+  }
+  &.closing {
+    opacity: 0;
+  }
+  div.backdrop {
+    background-color: rgba($color: #000000, $alpha: 0.5);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+  }
+  div.modal {
+    width: 750px;
+    max-width: 95%;
+
+    z-index: 11;
+    position: relative;
+
+    background-color: #fff;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    border-radius: 1rem;
+    padding: 4rem;
+
+    display: flex;
+    flex-direction: column;
+
+    opacity: 0;
+    transform: translateY(-100px);
+    transition: all 500ms ease-in-out;
+    &.opening {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+    &.closing {
+      opacity: 0;
+      transform: translateY(-100px);
+    }
+    button.close-btn {
+      position: absolute;
+      top: 1rem;
+      right: 1.5rem;
+      background: none;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+    }
+    div.help-container {
+      transition: all 0.3 ease;
+      opacity: 0;
+      display: flex;
+      flex-direction: column;
+      &.active {
+        opacity: 1;
+      }
+      &.no-active {
+        opacity: 0;
+      }
+      h2 {
+        margin-bottom: 2rem;
+      }
+      div.quote {
+        background-color: #ebebeb;
+        padding: 1.5rem 1rem;
+        display: flex;
+        flex-direction: column;
+        border-radius: 6px;
+        color: #3a3a3a;
+
+        q {
+          font-style: italic;
+          line-height: 150%;
+          letter-spacing: 0.25px;
+        }
+        span.author {
+          text-align: right;
+        }
+      }
+      img {
+        max-width: 100%;
+        width: auto;
+        height: 400px;
+        object-fit: contain;
+        &.spock-img {
+          margin-top: 1.5rem;
+          height: 200px;
+        }
+      }
+      div.buttons {
+        display: flex;
+        justify-content: flex-end;
+        gap: 3rem;
+
+        button.more-help {
+          width: 50%;
+          text-align: center;
+          margin-top: 3rem;
+          background: none;
+          border: none;
+          font-size: 1.2rem;
+          cursor: pointer;
+          color: white;
+          border-radius: 6px;
+          background-color: #0f1343;
+          height: 50px;
+          &.simple {
+            background-color: white;
+            border: 1px solid #0f1343;
+            color: #0f1343;
+          }
+        }
+      }
+    }
+  }
+}

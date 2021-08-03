@@ -1,0 +1,40 @@
+body,
+html {
+  min-width: 100vw;
+  min-height: 100vh;
+  font-family: "Montserrat", sans-serif;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  overflow-x: hidden;
+  background: #0f1343; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom, #1b215e, #0f1343); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #1b215e, #0f1343); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.app {
+  min-height: 100vh;
+  width: 100%;
+}
+.main-container {
+  padding: 0 0 4rem;
+  max-width: 1280px;
+  margin-inline: auto;
+  min-height: calc(100vh - 80px);
+  div.playing-board {
+    display: flex;
+    gap: 2rem;
+  }
+}
+
+.paper-card {
+  background: rgba(83, 92, 172, 0.45);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  padding: 2rem;
+}
